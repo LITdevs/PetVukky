@@ -44,7 +44,7 @@ function throwUp() {
         document.getElementById('feelings').innerText = "Your Vukky is throwing up! Try to not feed it too much."
         setTimeout(function() {
             document.getElementById('buttons').style.display = "block"
-            document.getElementById('vukky').src = "images/sad.png"
+            document.getElementById('vukky').src = "images/normal.png"
             document.getElementById('feelings').innerText = "Your Vukky didn't seem to like that."
         }, 3000);
     }, 2000);
