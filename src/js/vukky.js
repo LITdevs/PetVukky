@@ -23,7 +23,7 @@ setTimeout(function() {
 setInterval(function() {
     starveMeter -= 1
     if(starveMeter < 1) {
-        killVukky("of starvation")
+        killVukky("it starved to death")
     }
 }, 15000);
 
