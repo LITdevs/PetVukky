@@ -3,7 +3,7 @@ if (localStorage.getItem("vukkyName") === null) {
 }
 
 var vukkyName = localStorage.getItem("vukkyName")
-var starveMeter = 3
+var starveMeter = 5
 
 setTimeout(function() {
     document.getElementById('title').innerHTML = "Take care of " + vukkyName + "!"
@@ -22,11 +22,14 @@ setTimeout(function() {
 
 setInterval(function() {
     starveMeter -= 1
-}, 10000);
+    if(starveMeter < 1) {
+        killVukky("of starvation")
+    }
+}, 15000);
 
 function feedVukky() {
     starveMeter += 1
-    if(starveMeter > 5) {
+    if(starveMeter > 8) {
         throwUp()
         starveMeter -= 1
     }
