@@ -3,6 +3,7 @@ if (localStorage.getItem("vukkyName") === null) {
 }
 
 var vukkyName = localStorage.getItem("vukkyName")
+var starveMeter = 3
 
 setTimeout(function() {
     document.getElementById('title').innerHTML = "Take care of " + vukkyName + "!"
@@ -10,14 +11,41 @@ setTimeout(function() {
 
 setTimeout(function() {
     document.getElementById('vukky').src = "images/normal.png"
-    document.getElementById('buttons').style.display = "block"
     document.getElementById('feelings').innerText = "It seems a bit more relaxed now. It likes its name, " + vukkyName + "."
 }, 5000);
 
 setTimeout(function() {
     document.getElementById('vukky').src = "images/happy.png"
+    document.getElementById('buttons').style.display = "block"
     document.getElementById('feelings').innerText = "Your Vukky is very relaxed."
+}, 8000);
+
+setInterval(function() {
+    starveMeter -= 1
 }, 10000);
+
+function feedVukky() {
+    starveMeter += 1
+    if(starveMeter > 5) {
+        throwUp()
+        starveMeter -= 1
+    }
+}
+
+function throwUp() {
+    document.getElementById('buttons').style.display = "none"
+    document.getElementById('vukky').src = "images/sad.png"
+    document.getElementById('feelings').innerText = "Oh no... Something's wrong..."
+    setTimeout(function() {
+        document.getElementById('vukky').src = "images/spin.gif"
+        document.getElementById('feelings').innerText = "Your Vukky is throwing up! Try to not feed it too much."
+        setTimeout(function() {
+            document.getElementById('buttons').style.display = "block"
+            document.getElementById('vukky').src = "images/sad.png"
+            document.getElementById('feelings').innerText = "Your Vukky didn't seem to like that."
+        }, 3000);
+    }, 2000);
+}
 
 function killVukky(reason) {
     document.getElementById('buttons').style.display = "none"
