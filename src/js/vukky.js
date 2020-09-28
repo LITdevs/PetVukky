@@ -41,7 +41,7 @@ function throwUp() {
     document.getElementById('feelings').innerText = "Oh no... Something's wrong..."
     setTimeout(function() {
         document.getElementById('vukky').src = "images/spin.gif"
-        document.getElementById('feelings').innerText = "Your Vukky is throwing up! Try to not feed it too much."
+        document.getElementById('feelings').innerText = "Your Vukky is throwing up! Don't feed it too much!"
         setTimeout(function() {
             document.getElementById('buttons').style.display = "block"
             document.getElementById('vukky').src = "images/normal.png"
